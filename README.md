@@ -8,6 +8,6 @@ We also demonstrate how to create forms, tables, validation and the use of ng-ro
 This is a very simple demo just for presentation purposes.
 
 ## External Links
-[OMDb API](http://www.omdbapi.com/)
-[AngularJS](https://angularjs.org/)
-[Bootstrap](http://getbootstrap.com/)
+* [OMDb API](http://www.omdbapi.com/)
+* [AngularJS](https://angularjs.org/)
+* [Bootstrap](http://getbootstrap.com/)
