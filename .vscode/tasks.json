@@ -1,0 +1,17 @@
+{
+    "version": "0.1.0",
+    "command": "gulp",
+    "isShellCommand": true,
+    "args": [
+        "--no-color"
+    ],
+    // info: https://code.visualstudio.com/docs/editor/tasks
+    "tasks": [
+        {
+            "taskName": "default",
+            "args": [],
+            "isBuildCommand": true,
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}
