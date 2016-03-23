@@ -1,0 +1,31 @@
+<!DOCTYPE>
+<html>
+
+<head>
+    <title>Movie Database</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+</head>
+
+<body ng-app="moviesApp">
+    <div class="container">
+        <h1>Movie Database</h1>
+        <hr />
+
+        <div ng-view></div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular-route.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.2.5/ui-bootstrap-tpls.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-resource/1.5.2/angular-resource.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers/SearchCtrl.js"></script>
+    <script src="js/controllers/MovieDetailsCtrl.js"></script>
+    <script src="js/services/SearchHistorySvc.js"></script>
+    <script src="js/resources/OMDB.js"></script>
+</body>
+
+</html>
