@@ -39,12 +39,16 @@
 
             <p>{{movie.Plot}}</p>
         </div>
-        <div class="col-md-6">
-            <img ng-src="{{movie.Poster}}" ng-if="movie.Poster!= 'N/A'" alt="{{movie.Title}}" />
-            <div ng-if="movie.Poster==='N/A'" class="text-center">
-                <span class="fa fa-film fa-5x"></span>
-                <br />
-                <h4>Nenhuma imagem disponível</h4>
+        <div class="col-md-6 text-center">
+            <div class="thumbnail">
+                <img ng-src="{{movie.Poster}}" ng-if="movie.Poster!= 'N/A'" alt="{{movie.Title}}" />
+                <div ng-if="movie.Poster==='N/A'">
+
+                    <span class="fa fa-film fa-5x"></span>
+                    <br />
+                    <h4>Nenhuma imagem disponível</h4>
+
+                </div>
             </div>
         </div>
     </div>
