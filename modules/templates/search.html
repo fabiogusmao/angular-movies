@@ -4,7 +4,7 @@
         tooltip-placement="bottom" tooltip-trigger="none" tooltip-is-open="frmSearch.query.$invalid && frmSearch.query.$dirty"
         placeholder="Movie title or actor name">
     </div>
-    <button type="submit" ng-click="searchMovies()" class="btn btn-primary col-md-2"><span class="fa fa-search"></span> Pesquisar</button>
+    <button type="submit" ng-click="searchMovies()" class="btn btn-primary col-md-2"><span class="fa fa-search"></span> Search</button>
 </form>
 
 
@@ -14,7 +14,7 @@
       <span class="fa fa-exclamation-triangle"></span>   Couldn't find any movies matching your query!
     </div>
     <div ng-if="results.Response=='True'">
-    <h2>{{results.totalResults}} resultados encontrados.</h2>
+    <h2>{{results.totalResults}} results</h2>
 
     <table class="table table-responsive table-stripped table-hover">
         <tbody>
