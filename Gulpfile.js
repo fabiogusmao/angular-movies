@@ -36,7 +36,7 @@ gulp.task('fonts', () => {
 gulp.task('webpack', () => {
   return gulp.src('modules/app.js')
     .pipe(webpack(webPackCfg))
-    .pipe(gulp.dest('dist/'));
+    .pipe(gulp.dest('bundles/'));
 });
 
 
@@ -49,8 +49,9 @@ gulp.task('reload', () => {
 gulp.task('watch', () => {
   gulp.watch('less/**/*.less', ['less']);
   gulp.watch(['modules/**/*.js', 'modules/**/*.html'], ['webpack']);
-  watch(['dist/*.js', 'css/*.css']).pipe(connect.reload());
+  watch(['bundles/*.js', 'css/*.css']).pipe(connect.reload());
 });
+
 
 
 gulp.task('default', () => {

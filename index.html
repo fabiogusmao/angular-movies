@@ -3,7 +3,7 @@
 
 <head>
     <title>Movie Database</title>
-    <link rel="stylesheet" href="css/dependencies.css" />
+    <link rel="stylesheet" href="bundles/app.css" />
 </head>
 
 <body ng-app="moviesApp">
@@ -13,9 +13,9 @@
 
         <div ng-view></div>
 
-        
 
-        <script src="dist/app.js"></script>        
+        <script defer="defer" src="bundles/angular.bundle.js"></script>
+        <script defer="defer" src="bundles/app.js"></script>
 </body>
 
 </html>

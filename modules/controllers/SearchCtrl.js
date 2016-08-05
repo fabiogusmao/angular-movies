@@ -3,7 +3,7 @@ export default class SearchCtrl {
     constructor($scope, $timeout, OMDB, SearchHistorySvc) {
         $scope.search = { query: "" };
 
-        
+        $scope.pagination = {currentPage: 1};
 
         var history = SearchHistorySvc.getLastSearch();
 
@@ -15,22 +15,30 @@ export default class SearchCtrl {
         }
 
 
-        $scope.searchMovies = function () {
-
+        $scope.searchMovies =  () => {
             if ($scope.frmSearch.$invalid) {
-                //$scope.frmSearch.$setDirty(true);
                 $scope.frmSearch.query.$setDirty(true);
                 return;
             }
             $scope.error = null;
 
             SearchHistorySvc.setLastSearch($scope.search.query);
-
-            OMDB.search($scope.search, function (data) {
+            $scope.search.page = 1;
+           OMDB.search($scope.search, function (data) {
                 $scope.results = data;
             }, function () {
                 $scope.error = "Nada encontrado para sua busca.";
             })
         };
+        
+
+        $scope.pageChanged = () => {
+            $scope.search.page = $scope.pagination.currentPage;
+            OMDB.search($scope.search, function (data) {
+                $scope.results = data;
+            }, function () {
+                $scope.error = "Nada encontrado para sua busca.";
+            })
+        }
     }
 }

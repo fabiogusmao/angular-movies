@@ -1,8 +1,12 @@
+
+require('../less/dependencies.less');
+require('font-awesome/css/font-awesome.css');
+
+
 import 'angular';
 import 'angular-route';
 import 'angular-resource';
-
-
+import 'angular-bootstrap';
 
 import OMDB from './resources/omdb';
 import SearchHistorySvc from './services/SearchHistorySvc';
@@ -14,7 +18,8 @@ import movieTpl from './templates/movie.html';
 
 let app = angular.module('moviesApp', [
     'ngRoute',
-    'ngResource'
+    'ngResource',
+    'ui.bootstrap'
 ])
     .config(function ($routeProvider) {
         $routeProvider.when('/', {

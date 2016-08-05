@@ -7,7 +7,7 @@ export default class OMDB {
                 method: 'GET'
             },
             search: {
-                url: 'http://www.omdbapi.com/?s=:query&y=&plot=short&type=movie&r=json',
+                url: 'http://www.omdbapi.com/?s=:query&y=&plot=short&type=movie&r=json&page=:page',
                 method: 'GET'
             }
         })

@@ -1,8 +1,8 @@
 <form class="row" novalidate name="frmSearch">
     <div class="form-group col-md-10">
         <input required type="text" class="form-control" ng-model="search.query" id="query" name="query" uib-tooltip="Search movies by title or actors"
-        tooltip-placement="bottom" tooltip-trigger="none" tooltip-is-open="frmSearch.query.$invalid && frmSearch.query.$dirty"
-        placeholder="Movie title or actor name">
+            tooltip-placement="bottom" tooltip-trigger="none" tooltip-is-open="frmSearch.query.$invalid && frmSearch.query.$dirty"
+            placeholder="Movie title or actor name">
     </div>
     <button type="submit" ng-click="searchMovies()" class="btn btn-primary col-md-2"><span class="fa fa-search"></span> Search</button>
 </form>
@@ -11,32 +11,33 @@
 <div ng-if="results">
 
     <div ng-if="results.Response == 'False'" class="alert alert-warning">
-      <span class="fa fa-exclamation-triangle"></span>   Couldn't find any movies matching your query!
+        <span class="fa fa-exclamation-triangle"></span> Couldn't find any movies matching your query!
     </div>
     <div ng-if="results.Response=='True'">
-    <h2>{{results.totalResults}} results</h2>
+        <h2>{{results.totalResults}} results</h2>
 
-    <table class="table table-responsive table-stripped table-hover">
-        <tbody>
-            <tr ng-repeat="m in results.Search">
-                <td>{{m.imdbID}}</td>
-                <td>{{m.Title}}</td>
-                <td class="text-center">{{m.Year}}</td>
-                <td class="col-md-2 text-right">
-                    <a class="btn btn-info" title="View details" ng-href="{{'#/movie/' + m.imdbID}}"><span class="fa fa-info"></span></a>
-                </td>
-            </tr>
-        </tbody>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Title</th>
-                <th>Year</th>
-                <th>&nbsp;</th>
-            </tr>
-        </thead>
+        <table class="table table-responsive table-stripped table-hover">
+            <tbody>
+                <tr ng-repeat="m in results.Search">
+                    <td>{{m.imdbID}}</td>
+                    <td>{{m.Title}}</td>
+                    <td class="text-center">{{m.Year}}</td>
+                    <td class="col-md-2 text-right">
+                        <a class="btn btn-info" title="View details" ng-href="{{'#/movie/' + m.imdbID}}"><span class="fa fa-info"></span></a>
+                    </td>
+                </tr>
+            </tbody>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Year</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
 
-    </table>
+        </table>
+           <ul uib-pagination total-items="results.totalResults" ng-model="pagination.currentPage" ng-change="pageChanged()"></ul>
     </div>
 </div>
 
