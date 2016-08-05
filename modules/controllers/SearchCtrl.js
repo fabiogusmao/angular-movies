@@ -33,8 +33,9 @@ export default class SearchCtrl {
         
 
         $scope.pageChanged = () => {
-            $scope.search.page = $scope.pagination.currentPage;
-            OMDB.search($scope.search, function (data) {
+            var history = (SearchHistorySvc.getLastSearch());
+            var search = { query: history, page: $scope.pagination.currentPage};
+            OMDB.search(search, function (data) {
                 $scope.results = data;
             }, function () {
                 $scope.error = "Nada encontrado para sua busca.";

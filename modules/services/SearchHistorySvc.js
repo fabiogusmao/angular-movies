@@ -8,7 +8,7 @@ export default class SearchHistorySvc {
             }, setLastSearch: function (v) {
                 sessionStorage.setItem('searchHistory', v);
             }
-        }
+        }        
     }
 }
 
