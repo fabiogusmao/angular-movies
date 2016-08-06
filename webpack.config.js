@@ -1,57 +1,23 @@
-var path = require("path");
-var webpack = require("webpack");
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var LiveReloadPlugin = require('webpack-livereload-plugin');
-var ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
+var _ = require('lodash');
 
-module.exports = {
-    cache: true,
-    entry: {
-        app: "./modules/angular-movies.js",                
-    },
-    output: {
-        path: path.join(__dirname, "bundles"),
-        publicPath: "bundles/",
-        filename: "[name].js",
-        chunkFilename: "[name].[hash].js"
-    },
-    devtool: "source-map",
-    module: {
-        loaders: [
+function createConfig(){
 
-            
-            {
-                test: /\.js$/,
-                loader: 'babel',
-                exclude: /node_modules|bower_components/
-            },{
-                test: /\.js$/,
-                loader: 'ng-annotate',
-                exclude: /node_modules|bower_components/
-            }, {
-                test: /\.html$/,
-                loader: 'html'
-            },
-            // Extract css files
-            {
-                test: /\.css$/,
-                loader: ExtractTextPlugin.extract("style-loader", "css-loader")
-            }
-        ]
-    },
-    // resolve: {
-    //     modulesDirectories: ["web_modules", "node_modules", "bower_components"]
-    // },
-    plugins: [
-        //new webpack.NoErrorsPlugin(),
-        // new webpack.ResolverPlugin(
-        //     new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin(".bower.json", ["main"])
-        // ),
-        new ExtractTextPlugin("[name].css"),
-        new LiveReloadPlugin({
-            appendScriptTag: true
-        })
-        //new webpack.optimize.CommonsChunkPlugin("app", "commons.js"),
-        //new webpack.optimize.UglifyJsPlugin()
-    ]
-};
+    var configs = {};
+
+    var NODE_ENV = process.env.NODE_ENV || "development";
+
+
+    configs.global = require('./conf/webpack/global')(__dirname);
+    configs.development = require('./conf/webpack/development')(__dirname);
+    configs.production = require('./conf/webpack/production')(__dirname);
+
+
+
+    console.info("Preparing for \"" + (NODE_ENV) + "\" configuration.");
+
+    var webPackConfig = configs[NODE_ENV];
+    webPackConfig = _.merge(configs.global, webPackConfig);
+
+    return webPackConfig;
+}
+module.exports = createConfig();
