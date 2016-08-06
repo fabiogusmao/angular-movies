@@ -47,3 +47,4 @@ Webpack can also be used to implement development workflows, although Webpack is
 * [OMDb API](http://www.omdbapi.com/)
 * [AngularJS](https://angularjs.org/)
 * [Bootstrap](http://getbootstrap.com/)
+* [Creating a workflow with Webpack](http://christianalfoni.github.io/javascript/2014/12/13/did-you-know-webpack-and-react-is-awesome.html#vendors)
