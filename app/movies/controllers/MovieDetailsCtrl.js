@@ -1,7 +1,5 @@
-import OMDB from '../resources/omdb';
 
-
-export default class MovieDetailsCtrl {
+class MovieDetailsCtrl {
     constructor($scope, $routeParams, OMDB) {
 
         var movieId = $routeParams.movieId;
@@ -15,3 +13,5 @@ export default class MovieDetailsCtrl {
         })
     }
 }
+MovieDetailsCtrl.$inject=  ['$scope', '$routeParams', 'OMDB'];
+module.exports = MovieDetailsCtrl;

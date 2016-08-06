@@ -1,5 +1,5 @@
 
-export default class SearchCtrl {
+class SearchCtrl {
     constructor($scope, $timeout, OMDB, SearchHistorySvc) {
         $scope.search = { query: "" };
 
@@ -43,3 +43,6 @@ export default class SearchCtrl {
         }
     }
 }
+
+SearchCtrl.$inject = ['$scope', '$timeout', 'OMDB', 'SearchHistorySvc'];
+module.exports = SearchCtrl;

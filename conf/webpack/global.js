@@ -41,10 +41,9 @@ module.exports = function (_path) {
 
                 {
                     test: /\.js$/,
-                    exclude: [
-                        path.resolve(_path, "node_modules")
-                    ],
+                    exclude: /node_modules/,
                     loader: 'babel-loader',
+                    
                     query: {
                         cacheDirectory: true,
                         plugins: ['transform-runtime', 'add-module-exports'],

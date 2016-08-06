@@ -3,10 +3,7 @@
 
 
 
-import angular from 'angular';
-import 'angular-route';
-import 'angular-resource';
-import 'angular-ui-bootstrap';
+import './vendor.js';
 import movies from './movies/movies.module';
 
 let app = angular.module('moviesApp', [

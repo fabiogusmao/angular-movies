@@ -1,14 +1,12 @@
-export default class SearchHistorySvc {
-    constructor() {
-        var lastSearch = "";
+class SearchHistorySvc {    
 
-        return {
-            getLastSearch: function () {
-                return sessionStorage.getItem('searchHistory');
-            }, setLastSearch: function (v) {
-                sessionStorage.setItem('searchHistory', v);
-            }
-        }        
+    getLastSearch(){
+        return sessionStorage.getItem('searchHistory');
+    }
+    setLastSearch(v){
+        sessionStorage.setItem('searchHistory', v);
     }
 }
 
+
+module.exports = SearchHistorySvc;
