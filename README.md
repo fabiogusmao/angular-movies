@@ -10,7 +10,7 @@ This is a very simple demo just for presentation purposes.
 ## Installation
 To Install:
 
-    npm Install
+    npm install
 
 To run in development mode:
 
