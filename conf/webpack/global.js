@@ -89,7 +89,7 @@ module.exports = function (_path) {
             new webpack.optimize.AggressiveMergingPlugin({
                 moveToParents: true
             }),
-            new webpack.optimize.CommonsChunkPlugin('vendors', '[name].[chunkhash].js'), new HtmlWebpackPlugin({
+            new webpack.optimize.CommonsChunkPlugin('vendors', '[name].[hash].js'), new HtmlWebpackPlugin({
                 hash: false,
                 filename: 'index.html',
                 template: './index-tpl.html'

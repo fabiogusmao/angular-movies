@@ -1,3 +1,4 @@
+/// <binding />
 var _ = require('lodash');
 
 function createConfig() {

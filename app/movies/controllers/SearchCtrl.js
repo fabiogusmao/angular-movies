@@ -1,48 +1,55 @@
 
 class SearchCtrl {
-    constructor($scope, $timeout, OMDB, SearchHistorySvc) {
-        $scope.search = { query: "" };
 
-        $scope.pagination = {currentPage: 1};
+    constructor($scope, $timeout, OMDB, SearchHistorySvc) {
+
+        this.omdb = OMDB;
+        this.searchHistory = SearchHistorySvc;
+        this.$scope = $scope;
+
+        $scope.search = { query: "", page: 1 };
+        $scope.searchMovies = () => { this.searchMovies; };
+        $scope.changePage = () => { this.changePage; };
+
+                
 
         var history = SearchHistorySvc.getLastSearch();
 
         if (history) {
             $scope.search.query = history;
-            $timeout(function () {
-                $scope.searchMovies();
+            $timeout(() => {
+                this.searchMovies();
             }, 1);
         }
+    }
+    searchMovies() {
 
+        let $scope = this.$scope;
 
-        $scope.searchMovies =  () => {
-            if ($scope.frmSearch.$invalid) {
-                $scope.frmSearch.query.$setDirty(true);
-                return;
-            }
-            $scope.error = null;
+        $scope.error = null;
 
-            SearchHistorySvc.setLastSearch($scope.search.query);
-            $scope.search.page = 1;
-           OMDB.search($scope.search, function (data) {
-                $scope.results = data;
-            }, function () {
-                $scope.error = "Nada encontrado para sua busca.";
-            })
-        };
-        
-
-        $scope.pageChanged = () => {
-            var history = (SearchHistorySvc.getLastSearch());
-            var search = { query: history, page: $scope.pagination.currentPage};
-            OMDB.search(search, function (data) {
-                $scope.results = data;
-            }, function () {
-                $scope.error = "Nada encontrado para sua busca.";
-            })
-        }
+        this.searchHistory.setLastSearch($scope.search.query);
+        $scope.search.page = 1;
+        this.omdb.search($scope.search,  (data) => {
+            $scope.results = data;
+        }, function () {
+            $scope.error = "Nothing was found.";
+        })
+    }
+    pageChanged() {
+        let $scope = this.$scope;
+        var history = (this.searchHistory.getLastSearch());
+        $scope.search.query = history;
+        OMDB.search($scope.search, (data) => {
+            $scope.results = data;
+        }, function () {
+            $scope.error = "Nothing was found.";
+        })
     }
 }
 
 SearchCtrl.$inject = ['$scope', '$timeout', 'OMDB', 'SearchHistorySvc'];
 module.exports = SearchCtrl;
+
+
+
