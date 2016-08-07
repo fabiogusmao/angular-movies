@@ -1,4 +1,4 @@
-import OMDB from './resources/omdb';
+import OMDB from './resources/OMDB';
 import SearchHistorySvc from './services/SearchHistorySvc';
 import SearchCtrl from './controllers/SearchCtrl';
 import MovieDetailsCtrl from './controllers/MovieDetailsCtrl';
