@@ -1,4 +1,4 @@
-angular.module('moviesApp').service('OMDB', function($resource){
+export default function OMDB($resource) {
     // Angular $resource: https://docs.angularjs.org/api/ngResource/service/$resource
     return $resource(null, null, {
         get: {
@@ -6,8 +6,9 @@ angular.module('moviesApp').service('OMDB', function($resource){
             method: 'GET'
         },
         search: {
-            url: 'http://www.omdbapi.com/?s=:query&y=&plot=short&type=movie&r=json',
-            method: 'GET'            
+            url: 'http://www.omdbapi.com/?s=:query&y=:year&plot=short&type=movie&r=json&page=:page',
+            method: 'GET'
         }
-    });
-})
+    })
+}
+OMDB.$inject = ['$resource'];

@@ -7,7 +7,44 @@ We also demonstrate how to create forms, tables, validation and the use of ng-ro
 
 This is a very simple demo just for presentation purposes.
 
+## Installation
+To Install:
+
+    npm install
+
+To run in development mode:
+
+    npm start
+
+To build for production:
+
+    npm run build
+
+To test the production build:
+
+    npm run server
+
+## Techonologies
+
+This app exists to proof-concept newer Web technologies. 
+It is very simple, yet it is always changing when it comes to technologies.
+
+These are the technologies demonstrated at this time:
+
+### ES6/ES2015/ES2017
+
+ECMAScript 6 (now called ECMAScript 2015, 2017 is coming soon) is the current standard for JavaScript, but only a few features are supported in some browsers at present.
+For these reason we developers must either stay in a hostile past of ES5 or use tooling that allows us to live in the suggar world of modern JS and transpiles our code to ES5 compatible with all web browsers.
+
+We started using  [babel](https://babeljs.io/]) to compile ES6 into JavaScript but then moved to [TypeScript](https://www.typescriptlang.org/).
+
+### Webpack
+
+[Webpack](https://webpack.github.io/) is a module bundler, a program that allows developers to better handle coode modules and their dependencies as well as bundle static assets into their code, distributing optimized code to their customers.
+Webpack can also be used to implement development workflows, although Webpack is not a task runner itself.
+ 
 ## External Links
 * [OMDb API](http://www.omdbapi.com/)
 * [AngularJS](https://angularjs.org/)
 * [Bootstrap](http://getbootstrap.com/)
+* [Creating a workflow with Webpack](http://christianalfoni.github.io/javascript/2014/12/13/did-you-know-webpack-and-react-is-awesome.html#vendors)
