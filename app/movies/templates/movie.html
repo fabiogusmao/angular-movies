@@ -1,48 +1,48 @@
 <div>
     <a href="#/"> <span class="fa fa-arrow-left"></span> Back</a>
 </div>
-<div ng-if="movie">
-    <h2>{{movie.Title}}</h2>
+<div ng-if="ctrl.movie">
+    <h2>.{{ctrl.movie.Title}}</h2>
 
     <div class="row">
         <div class="col-md-6">
             <ul class="list-group">
                 <li class="list-group-item row">
                     <strong class="col-xs-6">Released</strong>
-                    <span class="col-xs-6 text-right">{{movie.Released}}</span>
+                    <span class="col-xs-6 text-right">.{{ctrl.movie.Released}}</span>
                 </li>
                 <li class="list-group-item row">
                     <strong class="col-xs-6">Genre</strong>
-                    <span class="col-xs-6 text-right">{{movie.Genre}}</span>
+                    <span class="col-xs-6 text-right">.{{ctrl.movie.Genre}}</span>
                 </li>
                 <li class="list-group-item row">
                     <strong class="col-xs-6">Country</strong>
-                    <span class="col-xs-6 text-right">{{movie.Country}}</span>
+                    <span class="col-xs-6 text-right">.{{ctrl.movie.Country}}</span>
                 </li>
                 <li class="list-group-item row">
                     <strong class="col-xs-6">Actors</strong>
-                    <span class="col-xs-6 text-right">{{movie.Actors}}</span>
+                    <span class="col-xs-6 text-right">.{{ctrl.movie.Actors}}</span>
                 </li>
                 <li class="list-group-item row">
                     <strong class="col-xs-6">Run time</strong>
-                    <span class="col-xs-6 text-right">{{movie.Runtime}}</span>
+                    <span class="col-xs-6 text-right">.{{ctrl.movie.Runtime}}</span>
                 </li>
                 <li class="list-group-item row">
                     <strong class="col-xs-6">Rated</strong>
-                    <span class="col-xs-6 text-right">{{movie.Rated}}</span>
+                    <span class="col-xs-6 text-right">.{{ctrl.movie.Rated}}</span>
                 </li>
                 <li class="list-group-item row">
                     <strong class="col-xs-6">Metascore</strong>
-                    <span class="col-xs-6 text-right">{{movie.Metascore}}</span>
+                    <span class="col-xs-6 text-right">.{{ctrl.movie.Metascore}}</span>
                 </li>
             </ul>
 
-            <p>{{movie.Plot}}</p>
+            <p>.{{ctrl.movie.Plot}}</p>
         </div>
         <div class="col-md-6 text-center">
             <div class="thumbnail">
-                <img ng-src="{{movie.Poster}}" ng-if="movie.Poster!= 'N/A'" alt="{{movie.Title}}" />
-                <div ng-if="movie.Poster==='N/A'">
+                <img ng-src="{{ctrl.movie.Poster}}" ng-if="ctrl.movie.Poster!= 'N/A'" alt=".{{ctrl.movie.Title}}" />
+                <div ng-if="ctrl.movie.Poster==='N/A'">
 
                     <span class="fa fa-film fa-5x"></span>
                     <br />

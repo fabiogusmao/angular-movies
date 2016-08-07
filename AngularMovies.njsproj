@@ -22,19 +22,19 @@
     <Content Include="README.md" />
     <Compile Include="webpack.config.js" />
     <Content Include="app\index-tpl.html" />
-    <Compile Include="app\angular-movies.js" />
     <Compile Include="app\vendor.js" />
     <Content Include="conf\lite-server.json" />
-    <Compile Include="app\movies\movies.module.js" />
-    <Compile Include="app\movies\controllers\MovieDetailsCtrl.js" />
-    <Compile Include="app\movies\controllers\SearchCtrl.js" />
-    <Compile Include="app\movies\resources\omdb.js" />
-    <Compile Include="app\movies\services\SearchHistorySvc.js" />
+    <Compile Include="app\movies\movies.module.ts" />
+    <Compile Include="app\movies\controllers\MovieDetailsCtrl.ts" />
+    <Compile Include="app\movies\controllers\SearchCtrl.ts" />
+    <Compile Include="app\movies\resources\omdb.ts" />
+    <Compile Include="app\movies\services\SearchHistorySvc.ts" />
     <Content Include="app\movies\templates\movie.html" />
     <Content Include="app\movies\templates\search.html" />
     <Compile Include="conf\webpack\development.js" />
     <Compile Include="conf\webpack\global.js" />
     <Compile Include="conf\webpack\production.js" />
+    <Content Include="tsconfig.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app" />
@@ -47,6 +47,7 @@
     <Folder Include="conf" />
     <Folder Include="conf\webpack" />
     <Folder Include="typings\" />
+    <Folder Include="typings\angularjs\" />
     <Folder Include="typings\globals\" />
     <Folder Include="typings\globals\angular-resource\" />
     <Folder Include="typings\globals\angular-route\" />
@@ -57,9 +58,14 @@
     <Folder Include="typings\globals\html-webpack-plugin\" />
     <Folder Include="typings\globals\less\" />
     <Folder Include="typings\globals\node\" />
+    <Folder Include="typings\globals\typescript\" />
     <Folder Include="typings\globals\webpack\" />
+    <Folder Include="typings\jquery\" />
+    <Folder Include="typings\requirejs\" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="app\angular-movies.ts" />
+    <TypeScriptCompile Include="typings\angularjs\angular.d.ts" />
     <TypeScriptCompile Include="typings\globals\angular-resource\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\angular-route\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\angular-ui-bootstrap\index.d.ts" />
@@ -69,8 +75,12 @@
     <TypeScriptCompile Include="typings\globals\html-webpack-plugin\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\less\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\node\index.d.ts" />
+    <TypeScriptCompile Include="typings\globals\typescript\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\webpack\index.d.ts" />
     <TypeScriptCompile Include="typings\index.d.ts" />
+    <TypeScriptCompile Include="typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="typings\requirejs\require.d.ts" />
+    <TypeScriptCompile Include="typings\tsd.d.ts" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <!--Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them.-->

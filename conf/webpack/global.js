@@ -5,17 +5,17 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-function addVendors(rootDir, webpackConfig){
+function addVendors(rootDir, webpackConfig) {
     var packageJsonPath = path.join(rootDir, 'package.json');
 
 
-    
+
     var packageJson = JSON.parse(fs.readFileSync(packageJsonPath));
 
-    for(var depName in packageJson.dependencies){
+    for (var depName in packageJson.dependencies) {
 
         webpackConfig.entry.vendors.push(depName);
-        webpackConfig.module.noParse.push(new RegExp('^' + depName+'$'));
+        webpackConfig.module.noParse.push(new RegExp('^' + depName + '$'));
 
     }
 }
@@ -26,18 +26,19 @@ module.exports = function (_path) {
     var config = {
         context: path.join(_path, 'app'),
         entry: {
-            "app": ["babel-polyfill", "./angular-movies.js"],
+            "app": ["./angular-movies.ts"],
             "vendors": []
         }, output: {
             path: 'dist',
             filename: '[name].js',
             publicPath: '/'
         }, resolve: {
-            alias: {}
+            alias: {},
+            extensions: ['', '.webpack.js', '.web.js', '.ts', '.js']
         }, module: {
             noParse: [],
             loaders: [
-
+                { test: /\.ts$/, loader: 'ts-loader' },
                 {
                     test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
                     loader: "url?limit=10000&mimetype=application/font-woff&name=fonts/[name].[ext]"
@@ -65,7 +66,7 @@ module.exports = function (_path) {
                     test: /\.js$/,
                     exclude: /node_modules/,
                     loader: 'babel-loader',
-                    
+
                     query: {
                         cacheDirectory: true,
                         plugins: ['transform-runtime', 'add-module-exports'],
@@ -96,7 +97,7 @@ module.exports = function (_path) {
             }), new ExtractTextPlugin('style-[chunkhash].css', { allChunks: true }),
         ]
     };
-    
+
     addVendors(_path, config);
 
     return config;

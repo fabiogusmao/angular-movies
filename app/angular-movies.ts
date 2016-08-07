@@ -1,10 +1,11 @@
 "use strict";
- require('./less/angular-movies.less');
+require('./less/angular-movies.less');
 
 
 
-import './vendor.js';
-import movies from './movies/movies.module';
+require("angular");
+
+require('./movies/movies.module');
 
 let app = angular.module('moviesApp', [
     'ngRoute',
@@ -13,4 +14,4 @@ let app = angular.module('moviesApp', [
     'movies'
 ]);
 
-module.exports = app;
+export = app;

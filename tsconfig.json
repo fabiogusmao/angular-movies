@@ -1,0 +1,10 @@
+﻿{
+  "compilerOptions": {
+    "module": "commonjs",
+    "sourceMap": true
+  },
+  "files": [
+    "app/angular-movies.ts",
+    "typings/tsd.d.ts"
+  ]
+}
