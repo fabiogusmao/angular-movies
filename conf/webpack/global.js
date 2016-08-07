@@ -62,22 +62,12 @@ module.exports = function (_path) {
                     ]
                 },
 
-                {
-                    test: /\.js$/,
-                    exclude: /node_modules/,
-                    loader: 'babel-loader',
-
-                    query: {
-                        cacheDirectory: true,
-                        plugins: ['transform-runtime', 'add-module-exports'],
-                        presets: ['angular', 'es2017']
-                    }
-                }, /*{
+                 {
                     test: require.resolve("angular"),
                     loaders: [
                         "expose?angular"
                     ]
-                },*/ {
+                }, {
                     test: /\.less$/,
                     loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
 
