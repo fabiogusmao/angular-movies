@@ -1,45 +1,35 @@
+import 'angular';
+
 import * as X from "../services/SearchHistorySvc";
 
+import * as models from '../models';
 
 
-interface ISearchVars {
-    query: string;
-    page: number;
-}
-
-interface ISearchCtrlScope {
-    search: ISearchVars;
-    error: string;
-    results: Object;
-
-    searchMovies(): void;
-    pageChanged(): void;
-}
-
-export default class SearchCtrl implements ISearchCtrlScope {
+export default class SearchCtrl {
 
 
-    public search: ISearchVars;
+    public search: models.ISearchVars
     public error:string;
     public results: Object;
 
     constructor(public $timeout, public OMDB, public SearchHistorySvc: X.ISearchHistorySvc) {
 
 
-        this.search = { query: "", page: 1 };
+        this.search = { query: "", page: 1, year: null };
         
         var history = SearchHistorySvc.getLastSearch();
 
         if (history) {
-            this.search.query = history;
+            this.search = history;
             this.searchMovies();
         }
     }
     searchMovies() {
 
         this.error = null;
-        this.SearchHistorySvc.setLastSearch(this.search.query);
         this.search.page = 1;
+        this.SearchHistorySvc.setLastSearch(this.search);
+        
         this.OMDB.search(this.search, (data) => {
             this.results = data;
         }, function () {
@@ -49,7 +39,9 @@ export default class SearchCtrl implements ISearchCtrlScope {
     pageChanged() {
         
         var history = (this.SearchHistorySvc.getLastSearch());
-        this.search.query = history;
+        var page = this.search.page;
+        this.search = history;
+        this.search.page= page;
         this.OMDB.search(this.search, (data) => {
             this.results = data;
         }, function () {

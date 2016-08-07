@@ -1,30 +1,45 @@
 <form class="row" novalidate name="frmSearch">
-    <div class="form-group col-md-10">
-        <input required type="text" class="form-control" ng-model="ctrl.search.query" id="query" name="query" uib-tooltip="Search movies by title or actors"
-            tooltip-placement="bottom" tooltip-trigger="none" tooltip-is-open="frmSearch.query.$invalid && frmSearch.query.$dirty"
-            placeholder="Movie title or actor name">
+    <div class="form">
+        <div class="form-group col-md-8">
+
+            <div class="input-group">
+                <label class="control-label input-group-addon">Title</label>
+                <input required type="text" class="form-control" ng-model="ctrl.search.query" id="query" name="query" 
+                    placeholder="Movie title or actor name">
+            </div>
+
+        </div>
+        <div class="form-group col-md-2">
+            <div class="input-group">
+                <label class="control-label input-group-addon">Year</label>
+                <input class="form-control" name="year" type="number" ng-model="ctrl.search.year" placeholder=Year " />
+            </div>
+        </div>
     </div>
-    <button type="submit" ng-click="ctrl.searchMovies()" class="btn btn-primary col-md-2"><span class="fa fa-search"></span> Search</button>
+    <div class="text-right">
+    <button type="submit" ng-disabled="frmSearch.$invalid" ng-click="ctrl.searchMovies() " class="btn btn-primary col-md-2"><span class="fa fa-search "></span> Search</button>
+    </div>
 </form>
 
 
 
-<div ng-if="ctrl.results">
+<div ng-if="ctrl.results ">
 
-    <div ng-if="ctrl.results.Response == 'False'" class="alert alert-warning">
-        <span class="fa fa-exclamation-triangle"></span> Couldn't find any movies matching your query!
+    <div ng-if="ctrl.results.Response=='False' " class="alert alert-warning ">
+        <span class="fa fa-exclamation-triangle "></span> Couldn't find any movies matching your query!
     </div>
-    <div ng-if="ctrl.results.Response=='True'">
+    <div ng-if="ctrl.results.Response=='True' ">
         <h2>{{ctrl.results.totalResults}} results</h2>
 
-        <table class="table table-responsive table-stripped table-hover">
+        <table class="table table-responsive table-stripped table-hover ">
             <tbody>
-                <tr ng-repeat="m in ctrl.results.Search">
+                <tr ng-repeat="m in ctrl.results.Search ">
                     <td>{{m.imdbID}}</td>
                     <td>{{m.Title}}</td>
-                    <td class="text-center">{{m.Year}}</td>
-                    <td class="col-md-2 text-right">
-                        <a class="btn btn-info" title="View details" ng-href="{{'#/movie/' + m.imdbID}}"><span class="fa fa-info"></span></a>
+                    <td class="text-center ">{{m.Year}}</td>
+                    <td class="col-md-2 text-right ">
+                        <a class="btn btn-info " title="View details " ng-href="{{ '#/movie/' + m.imdbID}}
+                    "><span class="fa fa-info "></span></a>
                     </td>
                 </tr>
             </tbody>
@@ -38,12 +53,15 @@
             </thead>
 
         </table>
-           <ul uib-pagination total-items="ctrl.results.totalResults" ng-model="ctrl.search.page" ng-change="ctrl.pageChanged()"></ul>
+        <ul uib-pagination total-items="ctrl.results.totalResults"
+            max-size="10"
+            ng-model="ctrl.search.page " 
+            ng-change="ctrl.pageChanged() "></ul>
     </div>
 </div>
 
 
-<div ng-if="ctrl.error" class="alert alert-warning">
+<div ng-if="ctrl.error " class="alert alert-warning ">
     <p>{{ctrl.error}}
         <p>
 </div>

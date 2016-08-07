@@ -6,7 +6,7 @@ export default function OMDB($resource) {
             method: 'GET'
         },
         search: {
-            url: 'http://www.omdbapi.com/?s=:query&y=&plot=short&type=movie&r=json&page=:page',
+            url: 'http://www.omdbapi.com/?s=:query&y=:year&plot=short&type=movie&r=json&page=:page',
             method: 'GET'
         }
     })

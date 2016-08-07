@@ -1,15 +1,22 @@
+import * as models from '../models';
+
+
 export interface ISearchHistorySvc {
     getLastSearch();
-    setLastSearch(v: string);
+    setLastSearch(search: models.ISearchVars);
 }
 
 
 export default class SearchHistorySvc implements ISearchHistorySvc {    
 
     getLastSearch(){
-        return sessionStorage.getItem('searchHistory');
+        var json = sessionStorage.getItem('searchHistory');
+        if(!json)
+            return null;
+        else
+            return JSON.parse(json);
     }
-    setLastSearch(v:string){
-        sessionStorage.setItem('searchHistory', v);
+    setLastSearch(search: models.ISearchVars){
+        sessionStorage.setItem('searchHistory', JSON.stringify(search));
     }
 }
