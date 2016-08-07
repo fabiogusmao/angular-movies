@@ -36,7 +36,7 @@ These are the technologies demonstrated at this time:
 ECMAScript 6 (now called ECMAScript 2015, 2017 is coming soon) is the current standard for JavaScript, but only a few features are supported in some browsers at present.
 For these reason we developers must either stay in a hostile past of ES5 or use tooling that allows us to live in the suggar world of modern JS and transpiles our code to ES5 compatible with all web browsers.
 
-We are using  [babel](https://babeljs.io/]) to compile ES6 into JavaScript.
+We started using  [babel](https://babeljs.io/]) to compile ES6 into JavaScript but then moved to [TypeScript](https://www.typescriptlang.org/).
 
 ### Webpack
 
