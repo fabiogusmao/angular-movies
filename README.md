@@ -11,6 +11,7 @@ This is a very simple demo just for presentation purposes.
 To Install:
 
     npm install
+    npm install -g tsd    
 
 To run in development mode:
 
